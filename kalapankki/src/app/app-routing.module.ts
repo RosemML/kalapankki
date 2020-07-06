@@ -5,6 +5,7 @@ import { FishesDetailsComponent } from './fishes-details/fishes-details.componen
 
 
 const routes: Routes = [
+  {path: '', redirectTo: '/fisheshome', pathMatch: 'full'},
   {path: 'fisheshome', component: FishesHomeComponent},
   {path: 'fishesdetails', component: FishesDetailsComponent}
 
