@@ -1,2 +1,7 @@
-<p>fishes-details works!</p>
+<ul>
+    <li *ngFor= "let x of catch" >
+        {{x.species}} {{x.size}} {{ x.date}}
+    </li>
+
+</ul>
 <button (click)= "goBack()">Takaisin</button>
