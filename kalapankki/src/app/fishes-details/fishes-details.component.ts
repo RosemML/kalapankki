@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { CATCH } from '../data';
 import { FishesService } from '../fishes.service';
+import { Catch } from '../dataclasses';
 @Component({
   selector: 'app-fishes-details',
   templateUrl: './fishes-details.component.html',
@@ -10,8 +11,7 @@ import { FishesService } from '../fishes.service';
 })
 export class FishesDetailsComponent implements OnInit {
 
-  public fishes = [];
-  //catch = CATCH;
+  catches: Catch[];
 
   constructor(
     private route: ActivatedRoute,
@@ -19,12 +19,17 @@ export class FishesDetailsComponent implements OnInit {
     private fishesService: FishesService,
   ) { }
 
+  _getFishes(): void {
+    this.fishesService.getFishes()
+    .subscribe(catches => this.catches = catches);
+  }
+
   ngOnInit(): void {
-    this.fishes = this.fishesService.getFishes();
+    this._getFishes();
   }
 
   goBack(): void {
     this.location.back();
   }
+  }
 
-}

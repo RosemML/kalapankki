@@ -21,10 +21,10 @@ export class FishesService {
   getFishes(): Observable<any> { 
     return this.firestore.collection('catches').snapshotChanges();
   }
-//tiedon lähetys kantaan
-  postFish(newCatch: Catch): {
+// tiedon lähetys kantaan
+  postFish(newCatch: Catch): any {
     return this.firestore.collection('catches').add(newCatch).then(
-      //virheen käsittely
+      // virheen käsittely
     );
   }
 }
