@@ -9,11 +9,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FishesService {
-
+  formData: Catch;
   constructor( private firestore: AngularFirestore) { }
   form = new FormGroup({
-    // tämä oli tutoriaalia dottedsquirrel.com how to crud in angular firebase
-    //firestore, mutta en saanut otetta/toimimaan.. Mutta tarvitsenko naita?
+    // tämä oli tutoriaalia dottedsquirrel.com how to crud in angular firebase..
     catchSpecies: new FormControl(''),
     catchSize: new FormControl(''),
     catchluretype: new FormControl(''),

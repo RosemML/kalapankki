@@ -14,12 +14,14 @@ export class FishesFormComponent implements OnInit {
 
   catches: any [];
 
-  model = new Catch();
+  //model = new Catch();
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private fishesService: FishesService,
+    // herjasi tästä kun tein templaatissa fishesService.formData.species
+    // niin laitoin publiciksi..
+    public fishesService: FishesService,
     private router: Router
   ) {
     this.fishesService.getFishes().
@@ -34,7 +36,6 @@ export class FishesFormComponent implements OnInit {
   }
 
   onSubmit(formData: any): void {
-    console.log(formData);
     this.fishesService.postFish({
       id: this.catches.length + 1,
       species: formData.species,
@@ -44,6 +45,8 @@ export class FishesFormComponent implements OnInit {
       weather: formData.weather,
       temperature: formData.temperature,
       date: formData.date
+    }).then(res => {
+
     });
 
   }

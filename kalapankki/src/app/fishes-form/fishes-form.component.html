@@ -1,49 +1,6 @@
 <div>
-<h1>Lisää napattu kalasaalis</h1>
-<form #f="ngForm" (ngSubmit)= "onSubmit(f.value); navigateToList()">
-    <div>
-        <label for= "species">Kalalaji</label> 
-        <input type="text" class="form-control" id="species" 
-        required
-        [(ngModel)]="model.species" name="species"/>
-    </div>
-    <div>
-        <label for="size">Koko (cm)</label> 
-        <input type="text" class="form-control" id="size"
-        required 
-        [(ngModel)]="model.size" name="size"/>
-    </div>
-    <div>
-        <label for="luretype">Viehe</label> 
-        <input type="text" class="form-control" id="luretype"
-        required 
-        [(ngModel)]="model.luretype" name="luretype"/>
-    </div>
-    <div>
-        <label for="lurename">Vieheen nimi</label> 
-        <input type="text" class="form-control" id="lurename"
-        required 
-        [(ngModel)]="model.lurename" name="lurename"/>
-    </div>
-    <div>
-        <label for="weather">Sää</label> 
-        <input type="text" class="form-control" id="weather"
-        required 
-        [(ngModel)]="model.weather" name="weather"/>
-    </div>
-    <div>
-        <label for="temperature">Ilman lämpötila</label> 
-        <input type="text" class="form-control" id="temperature"
-        required 
-        [(ngModel)]="model.temperature" name="temperature"/>
-    </div>
-    <div>
-        <label for="date">Päivämäärä</label> 
-        <input type="text" class="form-control" id="date"
-        required 
-        [(ngModel)]="model.date" name="date"/>
-    </div>
-</form>
+<h1 class="display-4">Lisää napattu kalasaalis</h1>
+
 
 <button type="submit" (click)= "onSubmit">Lisää saalis</button>
 
@@ -51,4 +8,47 @@
 </div>
 
 
-<!--  -->
+<!--<form #f="ngForm" (ngSubmit)= "onSubmit(f.value); navigateToList()">
+    <div>
+        <label>Kalalaji</label> 
+        <input type="text" class="form-control" id="species" 
+        required
+        [(ngModel)]="fishesService.formData.species" name="species"/>
+    </div>
+    <div>
+        <label>Koko (cm)</label> 
+        <input type="text" class="form-control" id="size"
+        required 
+        [(ngModel)]="fishesService.formData.size" name="size"/>
+    </div>
+    <div>
+        <label>Viehe</label> 
+        <input type="text" class="form-control" id="luretype"
+        required 
+        [(ngModel)]="fishesService.formData.luretype" name="luretype"/>
+    </div>
+    <div>
+        <label>Vieheen nimi</label> 
+        <input type="text" class="form-control" id="lurename"
+        required 
+        [(ngModel)]="fishesService.formData.lurename" name="lurename"/>
+    </div>
+    <div>
+        <label>Sää</label> 
+        <input type="text" class="form-control" id="weather"
+        required 
+        [(ngModel)]="fishesService.formData.weather" name="weather"/>
+    </div>
+    <div>
+        <label>Ilman lämpötila</label> 
+        <input type="text" class="form-control" id="temperature"
+        required 
+        [(ngModel)]="fishesService.formData.temperature" name="temperature"/>
+    </div>
+    <div>
+        <label>Päivämäärä</label> 
+        <input type="text" class="form-control" id="date"
+        required 
+        [(ngModel)]="fishesService.formData.date" name="date"/>
+    </div>
+</form>  -->

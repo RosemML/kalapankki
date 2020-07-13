@@ -25,12 +25,22 @@ export class FishesDetailsComponent implements OnInit {
   }*/
   _getFishes(): void {
     this.fishesService.getFishes()
-    .subscribe(catches => {
-      this.catches = catches;
-      console.log(catches);
-      console.log(catches[0].payload.doc.data().species);
-    }
-      );
+    .subscribe(payloads => {
+      this.catches = payloads;
+      console.log(payloads[0].payload.doc.data().species);
+      for (let i = 0; i < payloads.length; i++) {
+    this.catches.push({ id: payloads[i].payload.doc.data().id,
+    species: payloads[i].payload.doc.data().species,
+    size: payloads[i].payload.doc.data().size,
+    luretype: payloads[i].payload.doc.data().luretype,
+    lurename: payloads[i].payload.doc.data().lurename,
+    weather: payloads[i].payload.doc.data().weather,
+    temperature: payloads[i].payload.doc.data().temperature,
+    date: payloads[i].payload.doc.data().date
+     });
+      }
+      console.log(payloads);
+    });
   }
 
   ngOnInit(): void {
