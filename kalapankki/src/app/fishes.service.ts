@@ -12,13 +12,22 @@ export class FishesService {
 
   constructor( private firestore: AngularFirestore) { }
   form = new FormGroup({
-
+    // tämä oli tutoriaalia dottedsquirrel.com how to crud in angular firebase
+    //firestore, mutta en saanut otetta/toimimaan.. Mutta tarvitsenko naita?
+    catchSpecies: new FormControl(''),
+    catchSize: new FormControl(''),
+    catchluretype: new FormControl(''),
+    catchlurename: new FormControl(''),
+    catchWeather: new FormControl(''),
+    catchTemperature: new FormControl(''),
+    catchDate: new FormControl('')
   });
+
   // observablena tieto databasesta ja muutetaan catchin mukaan taulukoksi
   // ja tämä data tarjoillaan niille komponenteille, jotka tilaavat datan
   // komponentit voivat tilata esim. vain nimet ja joku toinen komponentti jotain muuta osaa datasta
-  // mutta firabasea käyttäessä tieto tulee ilmeisesti promisena, eli ei observablea
-  getFishes(): Observable<any> { 
+  // mutta firabasea käyttäessä tieto tulee ilmeisesti promisena, eli ei observablena..
+  getFishes(): Observable<any> {
     return this.firestore.collection('catches').snapshotChanges();
   }
 // tiedon lähetys kantaan

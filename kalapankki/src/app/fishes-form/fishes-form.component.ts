@@ -44,7 +44,7 @@ export class FishesFormComponent implements OnInit {
       weather: formData.weather,
       temperature: formData.temperature,
       date: formData.date
-    }).subscribe();
+    });
 
   }
   navigateToList(): void {

@@ -19,9 +19,18 @@ export class FishesDetailsComponent implements OnInit {
     private fishesService: FishesService,
   ) { }
 
-  _getFishes(): void {
+ /* _getFishes(): void {
     this.fishesService.getFishes()
     .subscribe(catches => this.catches = catches);
+  }*/
+  _getFishes(): void {
+    this.fishesService.getFishes()
+    .subscribe(catches => {
+      this.catches = catches;
+      console.log(catches);
+      console.log(catches[0].payload.doc.data().species);
+    }
+      );
   }
 
   ngOnInit(): void {
