@@ -1,4 +1,21 @@
-<p>fishes details</p>
+<table class="table table-hover">
+    <thead>
+        <th>Kala - cm</th>
+        <th>Viehe</th>
+        <th>Sää - ˚C</th>
+        <th>Pvm</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let c of list">
+            <td (click)="onEdit(c)">{{c.species}} - {{c.size}}</td>
+            <td (click)="onEdit(c)"> {{c.luretype}} : {{c.lurename}}</td>
+            <td (click)="onEdit(c)"> {{c.weather}} - {{c.temperature}}</td>
+            <td (click)="onEdit(c)"> {{c.date}} </td>
+            <td><a class="btn text-danger" (click)="onDelete(c.id)"><i class="fa fa-trash"></i></a></td>
+        </tr>
+    </tbody>
+</table>
 
 
 <!-- <button (click)= "goBack()">Takaisin</button> -->

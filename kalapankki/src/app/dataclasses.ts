@@ -1,5 +1,5 @@
 class Catch {
-    id: number;
+    id: string;
     species: string;
     size: string;
     luretype: string;

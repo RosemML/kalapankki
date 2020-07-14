@@ -1,7 +1,7 @@
 import { Catch } from './dataclasses';
 
 const CATCH: Catch[] = [
-    {id: 1,
+    {id: '1',
         species: 'ahven',
         size: '25cm',
         luretype: 'uistin',
@@ -9,7 +9,7 @@ const CATCH: Catch[] = [
         weather: 'pientä sadetta',
         temperature: +17,
         date: '27.6.2020' },
-    {id: 2,
+    {id: '2',
         species: 'hauki',
         size: '45cm',
         luretype: 'jigi',

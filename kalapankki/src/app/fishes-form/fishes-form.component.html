@@ -1,5 +1,6 @@
 <h1 class="display-4">Kalapankki </h1>
 <form #form = "ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="fishesService.formData.id">
     <div class="form-group">
         <input name="species" #species="ngModel" [(ngModel)]="fishesService.formData.species" class="form-control" placeholder="Kalalaji" required>
     </div>
@@ -13,11 +14,13 @@
     <div class="form-group">
         <input name="lurename" #lurename="ngModel" [(ngModel)]="fishesService.formData.lurename" class="form-control" placeholder="Vieheen nimi" required>
     </div>
-    <div class="form-group">
-        <input name="weather" #weather="ngModel" [(ngModel)]="fishesService.formData.weather" class="form-control" placeholder="Sää oli" required>
-    </div>
-    <div class="form-group">
-        <input name="temperature" #temperature="ngModel" [(ngModel)]="fishesService.formData.temperature" class="form-control" placeholder="Ilman lämpötila ˚C" required>
+    <div class="form-row">
+        <div class="form-group">
+            <input name="weather" #weather="ngModel" [(ngModel)]="fishesService.formData.weather" class="form-control" placeholder="Sää oli" required>
+        </div>
+        <div class="form-group">
+            <input name="temperature" #temperature="ngModel" [(ngModel)]="fishesService.formData.temperature" class="form-control" placeholder="Ilman lämpötila ˚C" required>
+        </div>
     </div>
     <div class="form-group">
         <input name="date" #date="ngModel" [(ngModel)]="fishesService.formData.date" class="form-control" placeholder="Päivämäärä" required>

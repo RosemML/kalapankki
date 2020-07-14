@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { CATCH } from '../data';
 import { FishesService } from '../fishes.service';
 import { Catch } from '../dataclasses';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-fishes-details',
   templateUrl: './fishes-details.component.html',
@@ -11,15 +13,46 @@ import { Catch } from '../dataclasses';
 })
 export class FishesDetailsComponent implements OnInit {
 
-  catches: Catch[];
+  list: Catch[];
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private fishesService: FishesService,
+    private firestore: AngularFirestore,
+    private toastr: ToastrService
   ) { }
 
- /* _getFishes(): void {
+
+  ngOnInit(): void {
+    this.fishesService.getCathes().subscribe(actionArray => {
+      this.list = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as Catch;
+      });
+    });
+  }
+
+  onEdit(c: Catch): void{
+    this.fishesService.formData = Object.assign({}, c);
+  }
+
+  onDelete(id: string): void {
+    if (confirm('Haluatko varmasti poistaa tämän saaliin?')) {
+      this.firestore.doc('catches/' + id).delete();
+      this.toastr.warning('Saalis poistettu!', 'Kalapankki')
+    }
+  }
+
+
+  /*goBack(): void {
+    this.location.back();
+  }*/
+  }
+
+  /* _getFishes(): void {
     this.fishesService.getFishes()
     .subscribe(catches => this.catches = catches);
   }
@@ -42,13 +75,4 @@ export class FishesDetailsComponent implements OnInit {
       console.log(payloads);
     });
   }*/
-
-  ngOnInit(): void {
-    // this._getFishes();
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-  }
 

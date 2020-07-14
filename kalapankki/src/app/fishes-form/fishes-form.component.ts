@@ -55,9 +55,15 @@ export class FishesFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void{
-    const data = form.value;
-    this.firestore.collection('catches').add(data);
-    this.resetForm(form);
+    const data = Object.assign({}, form.value);
+    delete data.id;
+    if (form.value.id == null){
+      this.firestore.collection('catches').add(data);
+    }
+    else{
+      this.firestore.doc('catches/' + form.value.id).update(data);
+      this.resetForm(form);
+    }
     this.toastr.success('Saalis lisätty!', 'Kalapankki');
   }
 
