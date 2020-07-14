@@ -22,7 +22,7 @@ export class FishesDetailsComponent implements OnInit {
  /* _getFishes(): void {
     this.fishesService.getFishes()
     .subscribe(catches => this.catches = catches);
-  }*/
+  }
   _getFishes(): void {
     this.fishesService.getFishes()
     .subscribe(payloads => {
@@ -41,10 +41,10 @@ export class FishesDetailsComponent implements OnInit {
       }
       console.log(payloads);
     });
-  }
+  }*/
 
   ngOnInit(): void {
-    this._getFishes();
+    // this._getFishes();
   }
 
   goBack(): void {

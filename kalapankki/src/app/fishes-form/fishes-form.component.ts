@@ -4,6 +4,9 @@ import { Location } from '@angular/common';
 import { FishesService } from '../fishes.service';
 import { Catch } from '../dataclasses';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-fishes-form',
@@ -12,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class FishesFormComponent implements OnInit {
 
-  catches: any [];
+  //catches: any [];
 
   //model = new Catch();
 
@@ -22,20 +25,47 @@ export class FishesFormComponent implements OnInit {
     // herjasi tästä kun tein templaatissa fishesService.formData.species
     // niin laitoin publiciksi..
     public fishesService: FishesService,
+    private firestore: AngularFirestore,
+    private toastr: ToastrService,
     private router: Router
-  ) {
+  ) {}
+  /*{
     this.fishesService.getFishes().
     subscribe(catches => this.catches = catches);
-   }
+   }*/
 
   ngOnInit(): void {
+    this.resetForm();
+  }
+
+  resetForm(form?: NgForm): void {
+    if (form != null ){
+    form.resetForm();
+  }
+    this.fishesService.formData = {
+      id : null,
+      species: '',
+      size: '',
+      luretype: '',
+      lurename: '',
+      weather: '',
+      temperature: null,
+      date: ''
+    };
+  }
+
+  onSubmit(form: NgForm): void{
+    const data = form.value;
+    this.firestore.collection('catches').add(data);
+    this.resetForm(form);
+    this.toastr.success('Saalis lisätty!', 'Kalapankki');
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  onSubmit(formData: any): void {
+  /*onSubmit(formData: any): void {
     this.fishesService.postFish({
       id: this.catches.length + 1,
       species: formData.species,
@@ -52,5 +82,5 @@ export class FishesFormComponent implements OnInit {
   }
   navigateToList(): void {
     this.router.navigate(['/']);
-  }
+  }*/
 }
