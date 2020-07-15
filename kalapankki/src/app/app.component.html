@@ -1,5 +1,23 @@
-<div class="container"> 
-    <app-fishes-home></app-fishes-home>
+    <h4 *ngIf="authenticationService.userData | async"></h4>
+        <div class="container"><app-fishes-home *ngIf="authenticationService.userData | async"></app-fishes-home>  </div>
+    
+<div class="container" *ngIf="!(authenticationService.userData | async)">
+    <h1>Tervetuloa Kalapankkiin</h1>
+    <p> Täällä voit tallentaa kalasaaliita. </p>
+    <input type="text" [(ngModel)]="email" placeholder="email">
+    <input type="password" [(ngModel)]="password" placeholder="password">
+<div>
+    <button class="btn btn-outline-info btn-sm" (click)="signUp()">Luo tunnus </button>
+</div>
+<div>
+    <button class="btn btn-outline-info btn-sm" (click)="signIn()">Kirjaudu sisään</button>
+</div>
+</div>
+<div class="align-self-end ml-auto">
+<button class="btn btn-info btn-sm" id="signOut" (click)="signOut()" *ngIf="authenticationService.userData | async">kirjaudu ulos</button>
 </div>
 
+<!--<div class="container">
+    <app-fishes-home></app-fishes-home>
+</div>-->
 <!-- <router-outlet></router-outlet>-->
