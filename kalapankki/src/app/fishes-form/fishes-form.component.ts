@@ -15,9 +15,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FishesFormComponent implements OnInit {
 
-  //catches: any [];
-
-  //model = new Catch();
 
   constructor(
     private route: ActivatedRoute,
@@ -29,10 +26,6 @@ export class FishesFormComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router
   ) {}
-  /*{
-    this.fishesService.getFishes().
-    subscribe(catches => this.catches = catches);
-   }*/
 
   ngOnInit(): void {
     this.resetForm();
@@ -71,22 +64,4 @@ export class FishesFormComponent implements OnInit {
     this.location.back();
   }
 
-  /*onSubmit(formData: any): void {
-    this.fishesService.postFish({
-      id: this.catches.length + 1,
-      species: formData.species,
-      size: formData.size,
-      luretype: formData.luretype,
-      lurename: formData.lurename,
-      weather: formData.weather,
-      temperature: formData.temperature,
-      date: formData.date
-    }).then(res => {
-
-    });
-
-  }
-  navigateToList(): void {
-    this.router.navigate(['/']);
-  }*/
 }

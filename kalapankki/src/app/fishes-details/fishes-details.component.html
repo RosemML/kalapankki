@@ -1,16 +1,16 @@
 <table class="table table-hover">
     <thead>
-        <th>Kala - cm</th>
+        <th>Kala,  koko</th>
         <th>Viehe</th>
-        <th>Sää - ˚C</th>
+        <th>Sää ja lämpötila</th>
         <th>Pvm</th>
         <th></th>
     </thead>
     <tbody>
         <tr *ngFor= "let c of list">
-            <td (click)="onEdit(c)">{{c.species}} - {{c.size}}</td>
-            <td (click)="onEdit(c)"> {{c.luretype}} : {{c.lurename}}</td>
-            <td (click)="onEdit(c)"> {{c.weather}} - {{c.temperature}}</td>
+            <td (click)="onEdit(c)">{{c.species}}, {{c.size}}cm</td>
+            <td (click)="onEdit(c)"> {{c.luretype}}: {{c.lurename}}</td>
+            <td (click)="onEdit(c)"> {{c.weather}}, {{c.temperature}}˚C</td>
             <td (click)="onEdit(c)"> {{c.date}} </td>
             <td><a class="btn text-danger" (click)="onDelete(c.id)"><i class="fa fa-trash"></i></a></td>
         </tr>

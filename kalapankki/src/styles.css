@@ -13,7 +13,9 @@ table.table-hover tbody tr:hover {
   cursor: pointer;
 }
 #signOut {
-  position: relative;
-  left: 1400px;
-  margin-top: 5rem;
+  position: sticky;
+  left: 65rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-right: 3rem;
 }
