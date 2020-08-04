@@ -42,7 +42,7 @@ export class FishesDetailsComponent implements OnInit {
   onDelete(id: string): void {
     if (confirm('Haluatko varmasti poistaa tämän saaliin?')) {
       this.firestore.doc('catches/' + id).delete();
-      this.toastr.warning('Saalis poistettu!', 'Kalapankki')
+      this.toastr.warning('Saalis poistettu!', 'Kalapankki');
     }
   }
 
