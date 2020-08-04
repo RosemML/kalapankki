@@ -6,6 +6,7 @@ Sovelluksessa voi lisätä kalasaaliin tallentaen seuraavat tiedot: kalalaji, ko
 
 ## Teknologiat
 Käytetyt: Angular, Node.js, Firebase 
+
 Komento, jolla koodin saa: git clone https://github.com/RosemML/kalapankki.git
 
 ## Työssä hyödynnetyt tutoriaalit
